@@ -1,0 +1,19 @@
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: denyenv
+webhooks:
+  - name: denyenv.pivotal.io
+    rules:
+      - apiGroups:
+          - "*"
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+        resources:
+          - pods
+    failurePolicy: Fail
+    clientConfig:
+      url: "https://webhook.url/webhook"
+     
