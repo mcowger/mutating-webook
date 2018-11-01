@@ -15,5 +15,5 @@ webhooks:
           - pods
     failurePolicy: Fail
     clientConfig:
-      url: "https://webhook.url/webhook"
+      url: "https://34796316.ngrok.io"
      

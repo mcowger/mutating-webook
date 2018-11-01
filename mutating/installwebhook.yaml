@@ -1,0 +1,19 @@
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: mutateenv
+webhooks:
+  - name: mutateenv.pivotal.io
+    rules:
+      - apiGroups:
+          - "*"
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+        resources:
+          - pods
+    failurePolicy: Fail
+    clientConfig:
+      url: "https://f24329e0.ngrok.io"
+     

@@ -9,11 +9,12 @@ app = Flask(__name__)
 def webhook():
     allowed = True
     request_info = request.json
-    # for container_spec in request_info
-    for container_spec in request_info["request"]["object"]["spec"]["containers"]:
-        if 'env' in container_spec:
-            print("Environment Variables Cannot Be Passed to Containers")
-            allowed = False
+    pprint(request_info)
+    # # for container_spec in request_info
+    # for container_spec in request_info["request"]["object"]["spec"]["containers"]:
+    #     if 'env' in container_spec:
+    #         print("Environment Variables Cannot Be Passed to Containers")
+    #         allowed = False
 
     admission_response = {
         "allowed": allowed
